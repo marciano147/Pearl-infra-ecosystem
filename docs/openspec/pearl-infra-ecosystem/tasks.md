@@ -1,17 +1,17 @@
 ## 1. Repository Bootstrap
 
-- [ ] 1.1 Create `KASPACOM/pearl-infra` and local working tree under `/home/coder/projects/pearl/pearl-infra`.
-- [ ] 1.2 Add README with repo purpose, phase, planned modules, and explicit non-goals.
-- [ ] 1.3 Add upstream manifest pinned to `pearl-research-labs/pearl` commit `0c8cef72da75d10ffd52ac20d3c0b075d9d9f1f7`.
-- [ ] 1.4 Copy this OpenSpec proposal/design/specs/tasks into the repo for review.
-- [ ] 1.5 Verify git status is clean and push the bootstrap commit.
+- [x] 1.1 Create local working tree under `/home/coder/projects/pearl/pearl-infra` and push to `marciano147/Pearl-infra-ecosystem`.
+- [x] 1.2 Add README with repo purpose, phase, planned modules, and explicit non-goals.
+- [x] 1.3 Add upstream manifest pinned to `pearl-research-labs/pearl` commit `0c8cef72da75d10ffd52ac20d3c0b075d9d9f1f7`.
+- [x] 1.4 Copy this OpenSpec proposal/design/specs/tasks into the repo for review.
+- [x] 1.5 Verify git status is clean and push the bootstrap commits.
 
 ## 2. Upstream Pearl Source Handling
 
-- [ ] 2.1 Decide submodule vs fetch script vs subtree for upstream Pearl source.
-- [ ] 2.2 Add selected upstream source mechanism pinned to the inspected commit.
-- [ ] 2.3 Document every reused path: `node/`, `wallet/`, `spv/`, `apps/apps/pearl-desktop-wallet`, `apps/packages/pearl-address-validation`, `miner/`, `py-pearl-mining/`, and relevant docs.
-- [ ] 2.4 Add license and update procedure notes.
+- [x] 2.1 Decide submodule vs fetch script vs subtree for upstream Pearl source. Decision: git submodule pinned to inspected commit.
+- [x] 2.2 Add selected upstream source mechanism pinned to the inspected commit.
+- [x] 2.3 Document every reused path: `node/`, `wallet/`, `spv/`, `apps/apps/pearl-desktop-wallet`, `apps/packages/pearl-address-validation`, `miner/`, `py-pearl-mining/`, and relevant docs.
+- [x] 2.4 Add license and update procedure notes.
 
 ## 3. Chain and Wallet Service Contracts
 
@@ -43,7 +43,7 @@
 
 ## 7. Quality Gates and Review
 
-- [ ] 7.1 Add goal-based execution checklist to repo contributing docs.
+- [x] 7.1 Add goal-based execution checklist to repo contributing docs.
 - [ ] 7.2 Add minimal CI plan for lint/typecheck/test once implementation begins.
-- [ ] 7.3 Run OpenSpec validation/status and include evidence in the first PR or bootstrap report.
-- [ ] 7.4 Present repo/specs to Sione for approval before implementing product code.
+- [x] 7.3 Run OpenSpec validation/status and include evidence in the bootstrap report.
+- [x] 7.4 Present repo/specs to Sione for approval before implementing product code.

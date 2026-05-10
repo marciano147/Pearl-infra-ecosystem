@@ -22,6 +22,7 @@ This repo is the planning and infrastructure base for KaspaCom Pearl apps:
 Start here before any Pearl task:
 
 - Resource hub: `docs/resources.md`
+- Next steps: `docs/next-steps.md`
 - Upstream manifest: `docs/upstream-manifest.md`
 - App thesis: `docs/research/pearl-app-thesis.md`
 - OpenSpec: `docs/openspec/pearl-infra-ecosystem/`
@@ -59,3 +60,15 @@ Every implementation task must include:
 4. failure escalation path
 
 A task is not complete until its deliverable exists and verification evidence is recorded.
+
+
+## Upstream Source
+
+Pinned upstream Pearl source is linked as a submodule:
+
+```bash
+git submodule update --init --recursive
+```
+
+Path: `upstream/pearl`
+Commit: `0c8cef72da75d10ffd52ac20d3c0b075d9d9f1f7`

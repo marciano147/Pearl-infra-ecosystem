@@ -1,0 +1,3 @@
+[submodule "upstream/pearl"]
+	path = upstream/pearl
+	url = https://github.com/pearl-research-labs/pearl.git
