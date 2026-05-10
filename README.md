@@ -22,6 +22,9 @@ This repo is the planning and infrastructure base for KaspaCom Pearl apps:
 Start here before any Pearl task:
 
 - Resource hub: `docs/resources.md`
+- Developer local setup: `docs/development/local-dev-guide.md`
+- Pearl chain primer: `docs/development/pearl-chain-primer.md`
+- Pearl app development guide: `docs/development/pearl-app-development.md`
 - Next steps: `docs/next-steps.md`
 - Upstream manifest: `docs/upstream-manifest.md`
 - App thesis: `docs/research/pearl-app-thesis.md`

@@ -15,6 +15,14 @@ This file is the quick-start map for Pearl research and KaspaCom app/infrastruct
 | Pearl OTC API base | https://api.pearl-otc.com | Public market/chain endpoints and authenticated OTC actions |
 | Pearl Hugging Face org | https://huggingface.co/pearl-ai | Pearl-certified LLMs for vLLM mining/inference |
 
+## Learning Path For New Developers
+
+1. `docs/development/local-dev-guide.md` — clone, submodule, toolchain, local node/wallet, public API commands.
+2. `docs/development/pearl-chain-primer.md` — how Pearl works: UTXO, node/wallet split, RPCs, mining, SPV, no current EVM.
+3. `docs/development/pearl-app-development.md` — app patterns: Pearl Pay, wallet SDK, chain-data adapters, OTC, compute marketplace.
+4. `docs/next-steps.md` — current implementation recommendation.
+5. `docs/openspec/pearl-infra-ecosystem/tasks.md` — task checklist before coding.
+
 ## GitHub Source Map
 
 | Component | GitHub URL | Local research path | Why it matters |
