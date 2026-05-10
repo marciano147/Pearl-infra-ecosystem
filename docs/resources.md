@@ -10,6 +10,7 @@ This file is the quick-start map for Pearl research and KaspaCom app/infrastruct
 | Pearl GitHub monorepo | https://github.com/pearl-research-labs/pearl | Canonical source for node, wallet, miner, apps |
 | Pearl README | https://github.com/pearl-research-labs/pearl/blob/master/README.md | Top-level architecture, build/run commands, ports |
 | Pearl Compute Platform | https://compute.pearlresearch.ai/ | Hosted compute/user-facing Pearl platform reference |
+| Pearl Explorer | https://explorer.pearlresearch.ai/?network=mainnet | Existing public mainnet explorer UI; use as reference/source before building any explorer-like UI |
 | Pearl OTC app | https://pearl-otc.com/ | Live PRL/USDC marketplace UX and flows |
 | Pearl OTC API base | https://api.pearl-otc.com | Public market/chain endpoints and authenticated OTC actions |
 | Pearl Hugging Face org | https://huggingface.co/pearl-ai | Pearl-certified LLMs for vLLM mining/inference |
@@ -20,7 +21,7 @@ This file is the quick-start map for Pearl research and KaspaCom app/infrastruct
 |---|---|---|---|
 | Full Pearl repo | https://github.com/pearl-research-labs/pearl | `/root/.openclaw/workspace/research/pearl` | Upstream source of truth |
 | Node / `pearld` | https://github.com/pearl-research-labs/pearl/tree/master/node | `research/pearl/node` | Full node, P2P, chain validation, JSON-RPC |
-| Node JSON-RPC docs | https://github.com/pearl-research-labs/pearl/blob/master/node/docs/json_rpc_api.md | `research/pearl/node/docs/json_rpc_api.md` | Explorer/indexer adapter contract |
+| Node JSON-RPC docs | https://github.com/pearl-research-labs/pearl/blob/master/node/docs/json_rpc_api.md | `research/pearl/node/docs/json_rpc_api.md` | Chain-data adapter contract |
 | Node mining docs | https://github.com/pearl-research-labs/pearl/blob/master/node/docs/mining.md | `research/pearl/node/docs/mining.md` | Mining address/node behavior |
 | Node config docs | https://github.com/pearl-research-labs/pearl/blob/master/node/docs/configuration.md | `research/pearl/node/docs/configuration.md` | Runtime flags/config |
 | Wallet / `oyster` | https://github.com/pearl-research-labs/pearl/tree/master/wallet | `research/pearl/wallet` | HD wallet daemon, signing, balances, tx history |
@@ -146,5 +147,5 @@ Before building product code, answer these in docs:
 ## Current Product Direction
 
 - First build infra, not a standalone browser wallet.
-- Build app demand before extension wallet: explorer/indexer, Pearl Pay, OTC market tools, compute marketplace interfaces.
+- Build app demand before extension wallet: chain data adapters, Pearl Pay, OTC market tools, compute marketplace interfaces. Do not duplicate Pearl’s public explorer UI unless a specific gap is proven.
 - Treat Pearl as UTXO-first unless future research proves smart-contract-like primitives.

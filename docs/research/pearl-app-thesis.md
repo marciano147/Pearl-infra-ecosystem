@@ -4,7 +4,7 @@ Pearl app development should start from UTXO ecosystem needs, not EVM assumption
 
 ## App Tracks
 
-1. Explorer/indexer API for blocks, transactions, addresses, mempool, miners, and data outputs.
+1. App-facing chain data API/adapters for blocks, transactions, addresses, mempool, miners, and data outputs — reuse Pearl’s existing explorer/Blockbook first instead of cloning the explorer UI.
 2. Wallet SDK primitives for address validation, payment requests, and transaction lifecycle.
 3. Pearl Pay payment links, merchant callbacks, and invoice tracking.
 4. OTC market-data tools and liquidity/price visibility.

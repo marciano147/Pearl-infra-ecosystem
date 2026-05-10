@@ -10,10 +10,10 @@ This repo is the planning and infrastructure base for KaspaCom Pearl apps:
 
 - chain/node adapters
 - wallet SDK primitives
-- explorer/indexer APIs
+- app-facing chain data APIs
 - Pearl Pay/payment rails
 - OTC/market-data rails
-- AI compute marketplace control-plane contracts
+- AI compute marketplace control-plane interfaces
 - future browser/mobile wallet connector interfaces
 
 
@@ -45,7 +45,7 @@ OpenSpec: `docs/openspec/pearl-infra-ecosystem/`
 ```text
 apps/       Thin prototype UIs, if needed later
 packages/   Reusable SDKs and typed adapters
-services/   Indexer, explorer API, payment, market, compute control-plane services
+services/   Chain data API, payment, market, compute control-plane services
 ops/        Devnet, Docker, deployment, observability, runbooks
 docs/       Specs, research, upstream manifest, architecture notes
 ```

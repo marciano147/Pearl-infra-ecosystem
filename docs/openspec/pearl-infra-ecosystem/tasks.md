@@ -24,7 +24,7 @@
 
 - [ ] 4.1 Define normalized data models for block, transaction, output, input, address activity, mempool entry, miner summary, and OP_RETURN data.
 - [ ] 4.2 Design read-only indexer ingestion flow from `pearld`/Blockbook-compatible sources.
-- [ ] 4.3 Add explorer API contract for tx/block/address/mempool/miner endpoints.
+- [ ] 4.3 Add app-facing chain-data API contract for tx/block/address/mempool/miner endpoints, reusing Pearl explorer/Blockbook first.
 - [ ] 4.4 Add validation fixtures from live Pearl public endpoints without committing secrets.
 
 ## 5. Wallet SDK Foundation
@@ -36,10 +36,10 @@
 
 ## 6. Market App Rails
 
-- [ ] 6.1 Define Pearl Pay invoice, callback, and confirmation service contracts.
+- [ ] 6.1 Define Pearl Pay invoice, callback, and confirmation service interfaces.
 - [ ] 6.2 Define OTC public market data ingestion and normalization contracts.
 - [ ] 6.3 Research Pearl escrow/multisig feasibility and add a security review gate before implementation.
-- [ ] 6.4 Define AI compute marketplace control-plane contracts for model catalog, operator registration, health, metering, billing, and PRL reward reporting.
+- [ ] 6.4 Define AI compute marketplace control-plane interfaces for model catalog, operator registration, health, metering, billing, and PRL reward reporting.
 
 ## 7. Quality Gates and Review
 

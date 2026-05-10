@@ -14,28 +14,53 @@ Completed:
 - Upstream Pearl source linked as pinned submodule at `upstream/pearl`
 - Goal-based contribution checklist added in `CONTRIBUTING.md`
 
+## Existing Pearl Explorer Finding
+
+Pearl already has a public explorer:
+
+- Mainnet UI: `https://explorer.pearlresearch.ai/?network=mainnet`
+- Observed UI routes: `/`, `/blocks`, `/transactions`, `/block/:hash`, `/tx/:txid`
+
+So KaspaCom should **not** build another generic explorer UI first. Build only:
+
+1. reusable chain-data adapters;
+2. SDK primitives for wallets/payments;
+3. app-specific views/widgets where the existing explorer does not solve the business use case.
+
+## Smart Contract Finding
+
+Current evidence says Pearl is a Bitcoin-style UTXO chain, not an EVM/smart-contract L1. The repo and docs show:
+
+- `pearld` full node forked from `btcd`;
+- `oyster` wallet forked from `btcwallet`;
+- UTXO transactions, Taproot, P2SH/multisig, and txscript-style scripts;
+- no obvious Solidity/EVM/WASM contract deployment or call RPCs;
+- the whitepaper mentions future/native settlement of compute contracts as a possible direction, not current deployed general-purpose smart contracts.
+
+Practical implication: app ideas should center on wallets, payments, indexing, OTC/market data, mining/inference ops, and off-chain compute-marketplace workflows, not DeFi smart contracts.
+
 ## What We Still Need
 
 ### Must Decide
 
 1. **First product track**
-   - Recommended: **Explorer/indexer + wallet SDK foundation**.
-   - Reason: every later app needs indexed chain data, transaction lookup, address history, payment confirmation, and normalized wallet primitives.
+   - Recommended: **App-facing chain data layer + wallet SDK foundation**, not a duplicate explorer UI.
+   - Reason: Pearl already has a public explorer at `https://explorer.pearlresearch.ai/?network=mainnet`. We only need our own chain-data service if existing public endpoints are not stable/app-friendly enough for payments, wallets, alerts, or KaspaCom dashboards.
 
 2. **Runtime stack**
    - Recommended: TypeScript monorepo with packages/services:
      - `packages/pearl-sdk`
      - `packages/pearl-rpc`
-     - `services/indexer-api`
+     - `services/chain-data-api`
      - `services/market-data`
-     - later `apps/explorer`
+     - later app UIs only where Pearl does not already cover the use case
 
 3. **Data source strategy**
-   - Phase 1: use public Blockbook + `pearld` RPC contracts/mocks.
-   - Phase 2: run our own Pearl node/indexer if needed.
+   - Phase 1: use Pearl's public explorer/Blockbook surfaces + `pearld` RPC contracts/mocks.
+   - Phase 2: run our own Pearl node/indexer only if we need reliability, custom indexing, webhooks, payment confirmations, or data Pearl's explorer does not expose.
 
 4. **Product order**
-   - Explorer/indexer API
+   - Chain data adapter/API, reusing existing explorer/Blockbook where possible
    - Wallet SDK + payment request schema
    - Pearl Pay
    - OTC market tools
@@ -44,7 +69,7 @@ Completed:
 
 ## Recommended Implementation Phase 1
 
-Build the **read-only chain foundation** first.
+Build the **read-only app data foundation** first. This is not an explorer clone; it is the reusable backend/SDK layer that other apps need.
 
 Deliverables:
 
@@ -54,12 +79,13 @@ Deliverables:
    - typed `pearld` RPC client
    - typed Blockbook client
    - mocked fixtures/tests
-3. `services/indexer-api`:
+3. `services/chain-data-api`:
    - `/health`
    - `/chain/stats`
    - `/blocks/recent`
    - `/tx/:txid` contract stub
    - `/address/:address` contract stub
+   - source adapters for Pearl explorer/Blockbook first, self-hosted node later if needed
 4. CI:
    - install
    - typecheck
@@ -86,11 +112,12 @@ Build wallet/app primitives:
 
 Pick first app:
 
-- **Explorer UI** if we want broad ecosystem utility.
 - **Pearl Pay** if we want transaction usage.
+- **Wallet-connect style SDK / browser extension** once web apps need signing.
+- **Explorer extension/widgets**, not a full explorer clone, if Pearl's existing explorer lacks embeddable analytics or app APIs.
 - **OTC market tool** if we want immediate PRL market relevance.
 - **AI compute marketplace** if we can line up GPU operators and user demand.
 
 ## Recommendation
 
-Implement Phase 1 now: **Explorer/indexer + RPC SDK scaffold**. It is the lowest-risk foundation and unlocks the most later products.
+Implement Phase 1 now: **chain data adapter/API + RPC SDK scaffold**. Do not build a competing explorer UI unless a clear gap appears. The use case is app infrastructure: payments, confirmations, wallet activity, alerts, OTC/market widgets, and later compute-marketplace settlement UX.

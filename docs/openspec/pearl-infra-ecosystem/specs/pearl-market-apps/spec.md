@@ -1,7 +1,7 @@
 ## ADDED Requirements
 
 ### Requirement: Pearl Pay rails
-The system SHALL define service contracts for payment links, invoice status, confirmation tracking, merchant callbacks, and hosted checkout flows using PRL transfers.
+The system SHALL define service interfaces for payment links, invoice status, confirmation tracking, merchant callbacks, and hosted checkout flows using PRL transfers.
 
 #### Scenario: Buyer pays invoice
 - **WHEN** PRL is received at the invoice address with required confirmations
@@ -21,8 +21,8 @@ The system SHALL document Pearl-compatible escrow and multisig possibilities sep
 - **WHEN** a developer starts an escrow implementation task
 - **THEN** the task references verified Pearl script/wallet capabilities and includes a security review gate before mainnet use
 
-### Requirement: AI compute marketplace contracts
-The system SHALL define interface contracts for model catalog, GPU operator registration, health checks, inference routing, usage metering, billing, and PRL reward reporting without requiring immediate production marketplace launch.
+### Requirement: AI compute marketplace interfaces
+The system SHALL define interfaces for model catalog, GPU operator registration, health checks, inference routing, usage metering, billing, and PRL reward reporting without requiring immediate production marketplace launch.
 
 #### Scenario: GPU operator connects
 - **WHEN** an operator registers a Pearl-certified model endpoint
