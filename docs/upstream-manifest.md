@@ -6,6 +6,20 @@
 - Inspected commit: `0c8cef72da75d10ffd52ac20d3c0b075d9d9f1f7`
 - Local research checkout: `/root/.openclaw/workspace/research/pearl`
 
+
+## External Resource Index
+
+The complete link/API map lives in `docs/resources.md`. Keep that file updated whenever a new Pearl source, endpoint, model, or app reference is discovered.
+
+Key external roots:
+
+- https://pearlresearch.ai/
+- https://github.com/pearl-research-labs/pearl
+- https://huggingface.co/pearl-ai
+- https://pearl-otc.com/
+- https://api.pearl-otc.com
+- https://compute.pearlresearch.ai/
+
 ## Relevant Components
 
 | Path | Purpose | Initial Handling |

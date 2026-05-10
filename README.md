@@ -16,6 +16,16 @@ This repo is the planning and infrastructure base for KaspaCom Pearl apps:
 - AI compute marketplace control-plane contracts
 - future browser/mobile wallet connector interfaces
 
+
+## Fast Research Links
+
+Start here before any Pearl task:
+
+- Resource hub: `docs/resources.md`
+- Upstream manifest: `docs/upstream-manifest.md`
+- App thesis: `docs/research/pearl-app-thesis.md`
+- OpenSpec: `docs/openspec/pearl-infra-ecosystem/`
+
 ## Current Phase
 
 **Planning/bootstrap only.** No production wallet, explorer, payment, or marketplace code should be shipped before the OpenSpec change is reviewed and approved.
