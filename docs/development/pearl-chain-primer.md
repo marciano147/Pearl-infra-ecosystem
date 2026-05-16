@@ -4,9 +4,19 @@ This primer explains Pearl as currently observed from the upstream repo and publ
 
 ## 1. What Pearl Is
 
-Pearl is an L1 blockchain based on Proof-of-Useful-Work (PoUW). Instead of mining by pure hash grinding, Pearl aims to mine as a by-product of useful matrix multiplication work used by AI workloads.
+Pearl is an L1 blockchain based on **Proof-of-Useful-Work (PoUW)**. Instead of mining by pure hash grinding, miners run **INT8 matrix multiplications** (the same compute that drives LLM inference), produce an execution trace, and prove its validity with a **Plonky2 zkSNARK**. The chain is a hardened fork of `btcd`/`btcwallet`.
 
-From an app developer perspective, Pearl currently behaves like a Bitcoin-style UTXO chain:
+Key protocol parameters (whitepaper-verified — see `docs/resources.md` "Protocol Specifics"):
+
+- **Block time:** 194 s target.
+- **Max supply:** 2,100,000,000 PRL; emission decays polynomially as `R(t) = H/(t+H)`.
+- **Addresses:** Taproot-only (`prl1p…`, Bech32m). No legacy ECDSA.
+- **Script:** Bitcoin-style stack VM with `OP_CAT` re-enabled and `OP_CHECKXMSSSIG` for post-quantum sigs (XMSS — stateful, hard to use safely in hot wallets).
+- **Difficulty:** WTEMA, τ = 7 days (smoother than Bitcoin's step adjustment).
+- **Tip-selection:** longest-work + heavy-chain rule (competitor needs `> min(work)/4` excess to displace tip).
+- **Launch:** April 2025.
+
+From an app developer perspective, Pearl behaves like a Bitcoin-style UTXO chain:
 
 - full node: `pearld`;
 - wallet daemon: `oyster`;
@@ -161,7 +171,17 @@ For early KaspaCom products, prefer public read-only APIs or a backend adapter f
 
 Pearl's mining stack is centered on useful matrix multiplication work.
 
-Observed components:
+Protocol mechanics (from whitepaper):
+
+1. Miner picks input matrices `A`, `B` (INT8) and adds **low-rank noise matrices** `E`, `F` of rank `r ∈ {2⁵, …, 2¹⁰}` to gate ASIC-resistance.
+2. Computes `C = (A+E)·(B+F)`, divides output into `t × t` tiles.
+3. For each tile `M_{i,j}`, computes `BLAKE3(seed, M_{i,j})`; tiles where the hash is `< 2^(256-b)` must be "opened" (revealed) in the block.
+4. Generates a **Plonky2 zkSNARK** proving the opened tiles are correctly computed — compresses what would be MB of opening data down to KB.
+5. Submits block header (116 B) + cert (≤ 65 KB) to peers; every full node verifies the SNARK in milliseconds.
+
+Constraint sketch: `m, n ≤ 2²⁴`; `16r ≤ k ≤ 4r²`; `k ≤ 2¹⁶`; `64 | k`; `k(h+w) ≤ 2²²`; `h·w ≥ 32`.
+
+Observed components in upstream code:
 
 - `zk-pow` — proof circuit/verifier;
 - `py-pearl-mining` — Python bindings;

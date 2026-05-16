@@ -3,8 +3,21 @@
 ## Primary Upstream
 
 - Repository: https://github.com/pearl-research-labs/pearl
-- Inspected commit: `0c8cef72da75d10ffd52ac20d3c0b075d9d9f1f7`
+- Inspected commit (pinned): `0c8cef72da75d10ffd52ac20d3c0b075d9d9f1f7`
 - Local research checkout: `/root/.openclaw/workspace/research/pearl`
+
+### Drift Status
+
+Pearl upstream moves fast. The pinned commit was the inspection target when our docs were written; references to specific source paths and line ranges in `docs/` assume this commit.
+
+Check drift before relying on internal details:
+
+```bash
+git -C upstream/pearl rev-parse HEAD                                 # what we're pinned to
+git ls-remote https://github.com/pearl-research-labs/pearl HEAD      # what upstream is on
+```
+
+> **As of 2026-05-16:** upstream HEAD is `3be33a595aed2d13613d6f4ba4e1a49503513956`. We are behind. Do **not** silently `git submodule update --remote` — open a deliberate task to: (1) bump the pin, (2) re-verify every path referenced in `docs/resources.md` § "GitHub Source Map" still exists at the same location, (3) re-verify the RPC method lists in `docs/development/pearl-chain-primer.md` §5–§6, and (4) record the new commit + diff summary here.
 
 
 ## External Resource Index

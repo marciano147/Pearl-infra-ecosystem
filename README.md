@@ -21,14 +21,33 @@ This repo is the planning and infrastructure base for KaspaCom Pearl apps:
 
 Start here before any Pearl task:
 
-- Resource hub: `docs/resources.md`
-- Developer local setup: `docs/development/local-dev-guide.md`
-- Pearl chain primer: `docs/development/pearl-chain-primer.md`
-- Pearl app development guide: `docs/development/pearl-app-development.md`
-- Next steps: `docs/next-steps.md`
-- Upstream manifest: `docs/upstream-manifest.md`
-- App thesis: `docs/research/pearl-app-thesis.md`
-- OpenSpec: `docs/openspec/pearl-infra-ecosystem/`
+- **LLM / agent context** (single page): [`AGENTS.md`](AGENTS.md)
+- **Team briefing** (meeting-ready, live numbers): [`docs/team-briefing.md`](docs/team-briefing.md)
+- **Builder FAQ** ("can I build X on Pearl?"): [`docs/FAQ.md`](docs/FAQ.md)
+- **Glossary** (Pearl-specific terms): [`docs/GLOSSARY.md`](docs/GLOSSARY.md)
+- Resource hub: [`docs/resources.md`](docs/resources.md)
+- Developer local setup: [`docs/development/local-dev-guide.md`](docs/development/local-dev-guide.md)
+- Pearl chain primer: [`docs/development/pearl-chain-primer.md`](docs/development/pearl-chain-primer.md)
+- Pearl app development guide: [`docs/development/pearl-app-development.md`](docs/development/pearl-app-development.md)
+- Next steps: [`docs/next-steps.md`](docs/next-steps.md)
+- Upstream manifest: [`docs/upstream-manifest.md`](docs/upstream-manifest.md)
+- App thesis: [`docs/research/pearl-app-thesis.md`](docs/research/pearl-app-thesis.md)
+- OpenSpec: [`docs/openspec/pearl-infra-ecosystem/`](docs/openspec/pearl-infra-ecosystem/)
+
+## Pearl At A Glance
+
+| | |
+|---|---|
+| Chain type | Bitcoin-style UTXO L1 (forked from `btcd`/`btcwallet`) |
+| Consensus | Proof-of-Useful-Work — INT8 matrix multiplication + Plonky2 zkSNARK |
+| Block time | 194 s target |
+| Max supply | 2,100,000,000 PRL |
+| Emission | Polynomial decay `R(t) = H/(t+H)` |
+| Addresses | Taproot-only (`prl1p…`), Bech32m |
+| Script | Bitcoin-style stack VM with `OP_CAT` + `OP_CHECKXMSSSIG` (post-quantum) |
+| Smart contracts | **None** (no EVM/WASM/Solidity) |
+| Native bridges | **None** |
+| KaspaCom build stack | TypeScript (NestJS / Angular) over JSON-RPC + gRPC |
 
 ## Current Phase
 

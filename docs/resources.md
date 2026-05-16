@@ -7,6 +7,7 @@ This file is the quick-start map for Pearl research and KaspaCom app/infrastruct
 | Resource | URL | Use |
 |---|---|---|
 | Pearl website / whitepaper | https://pearlresearch.ai/ | Protocol thesis, Proof-of-Useful-Work, economic framing |
+| Pearl ePrint theoretical paper | https://eprint.iacr.org/2025/685.pdf | Formal PoUW construction (low-rank noise, Plonky2 zkSNARK) |
 | Pearl GitHub monorepo | https://github.com/pearl-research-labs/pearl | Canonical source for node, wallet, miner, apps |
 | Pearl README | https://github.com/pearl-research-labs/pearl/blob/master/README.md | Top-level architecture, build/run commands, ports |
 | Pearl Compute Platform | https://compute.pearlresearch.ai/ | Hosted compute/user-facing Pearl platform reference |
@@ -14,6 +15,28 @@ This file is the quick-start map for Pearl research and KaspaCom app/infrastruct
 | Pearl OTC app | https://pearl-otc.com/ | Live PRL/USDC marketplace UX and flows |
 | Pearl OTC API base | https://api.pearl-otc.com | Public market/chain endpoints and authenticated OTC actions |
 | Pearl Hugging Face org | https://huggingface.co/pearl-ai | Pearl-certified LLMs for vLLM mining/inference |
+| Pearl Discord | https://discord.gg/joinpearl | Community + Pearl Research Labs contact channel |
+| Pearl support email | support@pearlresearch.ai | Direct contact for Pearl Research Labs |
+
+## Protocol Specifics (whitepaper-verified)
+
+| Property | Value | Source |
+|---|---|---|
+| Target block time | 194 s | Whitepaper §block parameters |
+| Max supply | 2,100,000,000 PRL | Whitepaper §emission |
+| Smallest unit | grain = 10⁻⁸ PRL | Whitepaper §units |
+| Emission curve | Polynomial decay `R(t) = H/(t+H)` | Whitepaper §emission |
+| Difficulty adjustment | WTEMA, τ = 7 days | Whitepaper §difficulty |
+| Tip-selection | Heavy-chain rule, threshold `min(work)/4` | Whitepaper §consensus |
+| Address type | Taproot only (P2TR, Bech32m, `prl1p…`) | Whitepaper §addresses |
+| Re-enabled opcode | `OP_CAT` (520-byte cap, cost `⌈len/64⌉`) | Whitepaper §script |
+| Post-quantum opcode | `OP_CHECKXMSSSIG` (stateful, requires careful key management) | Whitepaper §addresses |
+| ZK proof system | Plonky2 | Whitepaper §PoUW |
+| Useful work | INT8 matrix multiplication with low-rank noise; future BF16/FP8/FP4 | Whitepaper §matmul |
+| Header size | 116 bytes | Whitepaper §block |
+| Cert size cap | ~65 KB | Whitepaper §block |
+| Timestamp future-time limit | 5 minutes (vs Bitcoin's 120) | Whitepaper §timestamp |
+| Launch | April 2025 (node code public + vLLM plugin + Llama 3.3 70B) | Whitepaper §status |
 
 ## Learning Path For New Developers
 
